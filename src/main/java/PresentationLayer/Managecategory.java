@@ -47,7 +47,7 @@ public class Managecategory extends Command {
                 retIdInt = Integer.parseInt(request.getParameter("sportid"));
                 String kategoritekst = request.getParameter("kategori");
                 LogicFacade.updateSport(retIdInt, kategoritekst);
-                // Genindlæs sportList i application scope'
+                // Genindlaes sportList i application scope'
                 Initializer.initSportList();
                 request.getServletContext().setAttribute("sportList", Initializer.getSportList());
                 return "kategorier";

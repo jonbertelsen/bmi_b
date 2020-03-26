@@ -1,0 +1,35 @@
+@startuml
+Title CupCake
+
+|Kunde|
+start
+
+:Gå til website (k1);
+|#AntiqueWhite|Website|
+repeat
+    :Indtast credentials;
+repeat while (credentials true?) is (no)
+->yes;
+
+:Log ind;
+|Kunde|
+:Bestil cupcakes;
+|Website|
+:Gem ordre;
+:Lav kvittering;
+fork
+|Kunde|
+:Kvittering]
+
+:Tag bilen;
+fork again
+
+|Butik|
+:bag kager;
+:kager]
+:pak kager;
+end fork
+:afhent kager;
+
+stop
+@enduml

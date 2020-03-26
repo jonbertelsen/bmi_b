@@ -7,8 +7,21 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ The purpose of SportMapper is to select and update category texts for dropdowns
+ @author jon
+ @version 0.9
+ */
+
 public class SportMapper {
 
+    /**
+     * Selects a list of sport categories from the DB
+     * @return A arraylist of Sportelements with name and id
+     * @throws LoginSampleException
+     * @author jon
+     * @version 0.9
+     */
     public static List<Sport> getAllSports() throws LoginSampleException {
         List<Sport> sportList = null;
         try {
@@ -35,6 +48,12 @@ public class SportMapper {
         return sportList;
     }
 
+    /**
+     * Updates a sport category in the database
+     * @param sport_id (should exist in the DB already)
+     * @param name (updated name for category)
+     * @throws LoginSampleException
+     */
     public static void updateSport(int sport_id, String name) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -48,6 +67,12 @@ public class SportMapper {
         }
     }
 
+    /**
+     * Removed a sport category form DB. Cannot remove if the is a
+     * dependent foreign key in the bmi_entry table
+     * @param sport_id
+     * @throws LoginSampleException
+     */
     public static void deleteSport(int sport_id) throws LoginSampleException {
         try {
             Connection con = Connector.connection();

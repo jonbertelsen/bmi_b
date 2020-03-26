@@ -5,6 +5,9 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Denne abstrakte klasse anvendes til at nedarve command klasser fra
+ */
 abstract class Command {
 
     private static HashMap<String, Command> commands;

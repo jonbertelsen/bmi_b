@@ -1,0 +1,44 @@
+@startuml
+autonumber
+Title Beregning af BMI
+actor bruger
+
+boundary index.jsp
+boundary resultat.jsp
+
+bruger -> index.jsp: start
+== Initialization ==
+box BmiUtil
+index.jsp -> Initializer: getSportList()
+Initializer --> index.jsp: ArrayList<Sport>
+end box
+== Beregn BMI ==
+box PresentationLayer
+control FrontController
+index.jsp -> FrontController: doPost()
+FrontController -> FrontController: processRequest()
+FrontController -> Command: from()
+Command --> FrontController: Resultat
+FrontController -> Resultat: execute()
+end box
+
+box LogicFacade
+Resultat -> LogicFacade: insertBmiItem()
+end box
+
+box DBAccess
+LogicFacade -> BmiMapper: insertBmiItem()
+end box
+
+database BmiDB
+BmiMapper -> BmiDB: executeQuery()
+BmiDB --> BmiMapper: OK
+BmiMapper --> LogicFacade: OK
+LogicFacade --> Resultat: OK
+Resultat --> FrontController: resultat
+FrontController --> resultat.jsp: forward()
+
+
+
+
+@enduml

@@ -3,12 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>prejektSkabelon</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>bmi</artifactId>
+    <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>prejektskabelon</name>
-
+    <name>bmi</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -16,8 +15,6 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
-
-
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
@@ -59,12 +56,20 @@
     <build>
         <plugins>
             <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <destDir>/docs/apidocs</destDir>
+                    <reportOutputDirectory>${basedir}</reportOutputDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
-                    <source>8</source>
-                    <target>8</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>

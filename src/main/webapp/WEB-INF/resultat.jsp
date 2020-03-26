@@ -35,6 +35,7 @@
             <c:forEach var="infoitem" items="${requestScope.infos}" >
                 id: ${infoitem}<br/>
             </c:forEach>
+
         </p>
 
 

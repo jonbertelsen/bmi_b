@@ -1,0 +1,34 @@
+@startuml
+
+Title BMI beregner
+
+state index.jsp
+state login.jsp
+
+note top of login.jsp
+Username and role
+stored in session
+end note
+
+[*] --> index.jsp
+index.jsp -right-> resultat.jsp: beregn
+resultat.jsp -left-> index.jsp: retur
+index.jsp --> login.jsp: log på
+login.jsp --> LoggedOn: log på  [ok]
+login.jsp --> login.jsp: log på [fejl]
+
+state LoggedOn {
+    state admin.jsp
+    state resultat.jsp
+    state kategorier.jsp
+    state retkategorier.jsp
+    [*]-->admin.jsp
+    admin.jsp --> kategorier.jsp: ret kategorier
+    kategorier.jsp --> admin.jsp: retur
+    kategorier.jsp --> retkategorier.jsp: ret
+    retkategorier.jsp --> kategorier.jsp: retur
+    kategorier.jsp --> kategorier.jsp: fjern
+    LoggedOn --> index.jsp: retur
+}
+
+@enduml
