@@ -1,5 +1,8 @@
 package FunctionLayer;
 
+/**
+ * Denne klasse bruges til sportskategorier og har en række metoder bla bla
+ */
 public class Sport {
 
     private int sports_id;
@@ -18,6 +21,10 @@ public class Sport {
         this.sports_id = sports_id;
     }
 
+    /**
+     * Getter for sportsnavn
+     * @return Navnet på en sportskategori
+     */
     public String getName() {
         return name;
     }
